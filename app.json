@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "nativewind_crash_course",
-    "slug": "nativewind_crash_course",
+    "name": "Aora",
+    "scheme": "aora",
+    "slug": "aora",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,16 +13,38 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "package": "com.jsm.rn.aora"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jsm.rn.aora"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "assets/fonts/Poppins-Black.ttf",
+            "assets/fonts/Poppins-Bold.ttf",
+            "assets/fonts/Poppins-ExtraBold.ttf",
+            "assets/fonts/Poppins-ExtraLight.ttf",
+            "assets/fonts/Poppins-Light.ttf",
+            "assets/fonts/Poppins-Medium.ttf",
+            "assets/fonts/Poppins-Regular.ttf",
+            "assets/fonts/Poppins-SemiBold.ttf",
+            "assets/fonts/Poppins-Thin.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }
