@@ -12,10 +12,13 @@ Node.js
 Expo CLI
 Installation
 Clone the repository:
+
 `git clone https://github.com/your-username/rn-practice.git`
+
 `cd rn-practice`
 
 Install dependencies:
+
 `npm install`
 
 Set up Appwrite:
@@ -24,6 +27,7 @@ Add your Appwrite endpoint and project credentials in the environment/configurat
 
 Running the App
 To run the app in development mode:
+
 `npx expo start -c`
 
 The app will start, and you can preview it in the Expo Go app or using an emulator.
@@ -34,8 +38,7 @@ Expo: For ease of development and deployment.
 Tailwind CSS: For styling the app UI.
 Appwrite: For backend and database management.
 Folder Structure
-graphql
-Copy code
+```
 rn-practice/
 ├── app/            # Source code
 │   ├── index.jsx   # Main app file
@@ -48,5 +51,6 @@ rn-practice/
 ├── constants/      # Define assets and export
 ├── lib/            # API and database services
 └── tailwind.config.js # Tailwind configuration
+```
 Contributing
 If you'd like to contribute, feel free to make a pull request!
