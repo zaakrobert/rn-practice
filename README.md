@@ -52,5 +52,13 @@ rn-practice/
 ├── lib/            # API and database services
 └── tailwind.config.js # Tailwind configuration
 ```
-Contributing
+
+
+## Credits
+
+This side project was inspired by and built upon concepts learned from [Aora by Adrian Hajdin](https://github.com/adrianhajdin/aora).
+
+
+## Contributing
+
 If you'd like to contribute, feel free to make a pull request!
