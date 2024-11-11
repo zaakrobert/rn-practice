@@ -1,5 +1,5 @@
-import { View, Text, FlatList, Image, RefreshControl, Alert } from 'react-native'
-import React, { useCallback, useEffect, useState } from 'react'
+import { View, Text, FlatList, Image, RefreshControl } from 'react-native'
+import React, { useCallback, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '../../context/GlobalProvider'
 import { images } from '../../constants'
@@ -13,20 +13,19 @@ import CustomButton from '../../components/CustomButton'
 import { useFocusEffect } from 'expo-router'
 
 const Home = () => {
-  const { data: posts, isLoading: postsIsLoading, refetch: refetchPosts } = useAppwrite(getAllPosts);
-  const { data: latestPosts, isLoading: latestPostsIsLoading, refetch: refetchLatestePosts } = useAppwrite(getLatestPosts);
+  const { data: posts, refetch: refetchPosts } = useAppwrite(getAllPosts);
+  const { data: latestPosts, refetch: refetchLatestePosts } = useAppwrite(getLatestPosts);
 
-  const { user, setUser, setIsLoggedIn } = useGlobalContext();
-
-  // console.log('^^^ posts', posts)
+  const { user } = useGlobalContext();
 
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
     setRefreshing(true);
-    //re call videos --> if any new videos appeared
+
     await refetchPosts();
     await refetchLatestePosts();
+
     setRefreshing(false);
   }
 
@@ -34,7 +33,6 @@ const Home = () => {
     onRefresh();
   },[]))
 
-  // console.log('likedList', user);
 
   return (
     <SafeAreaView className="bg-primary h-full">

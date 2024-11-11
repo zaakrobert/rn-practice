@@ -1,4 +1,4 @@
-import { View, Text, FlatList, ImageBackground, Image } from 'react-native'
+import { FlatList, ImageBackground, Image } from 'react-native'
 import React, { useState } from 'react'
 import * as Animatable from 'react-native-animatable'
 import { TouchableOpacity } from 'react-native'

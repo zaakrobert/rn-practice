@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import SearchInput from '../../components/SearchInput'
 import EmptyState from '../../components/EmptyState'
@@ -11,22 +11,16 @@ import CustomButton from '../../components/CustomButton'
 
 const Search = () => {
   const { query } = useLocalSearchParams()
-  const { data: posts, isLoading, refetch } = useAppwrite(() => searchPosts('title', query));
-
-  // console.log('qq', query);
-  // console.log('posts', posts);
-  
+  const { data: posts, refetch } = useAppwrite(() => searchPosts('title', query));
 
   useEffect(() => {
     refetch();
   }, [query])
 
 
-
-
   return (
     <SafeAreaView className="bg-primary h-full">
-      <FlatList // Verticle FlatList and horizontal FlatList need to be seperate
+      <FlatList
         data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (

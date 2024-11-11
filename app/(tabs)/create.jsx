@@ -6,7 +6,6 @@ import { TouchableOpacity } from 'react-native'
 import { ResizeMode, Video } from 'expo-av'
 import { icons } from '../../constants'
 import CustomButton from '../../components/CustomButton'
-// import * as DocumentPicker from 'expo-document-picker'
 import * as ImagePicker from 'expo-image-picker';
 import { Alert } from 'react-native'
 import { router } from 'expo-router'
@@ -14,7 +13,7 @@ import { createPost } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'
 
 const FILE_TYPE = {
-  image: 'image',
+  IMAGE: 'image',
   video: 'video'
 }
 const Create = () => {
@@ -29,36 +28,24 @@ const Create = () => {
   });
 
   const openPicker = async (selectType) => {
-    // //For DocumentPicker
-    // const result = await DocumentPicker.getDocumentAsync({
-    //   type: selectType === FILE_TYPE.image
-    //     ? ['image/png', 'image/jpg', 'image/jpeg', 'image/svg']
-    //     : ['video/mp4', 'video/gif']
-    // })
 
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: selectType === FILE_TYPE.image
+      mediaTypes: selectType === FILE_TYPE.IMAGE
         ? ImagePicker.MediaTypeOptions.Images
         : ImagePicker.MediaTypeOptions.Videos,
       aspect: [4, 3],
       quality: 1,
     });
 
-    // console.log('aas', result);
-    
 
     if (!result.canceled) {
-      if (selectType === FILE_TYPE.image) {
+      if (selectType === FILE_TYPE.IMAGE) {
         setForm({ ...form, thumbnail: result.assets[0] });
       }
       if (selectType === FILE_TYPE.video) {
         setForm({ ...form, video: result.assets[0] });
       }
-    } /* else {
-      setTimeout(() => {
-        Alert.alert('Document picked', JSON.stringify(result, null, 2));
-      }, 100)
-    } */
+    }
   }
   const submit = async () => {
     if (form.prompt === '' || form.title === '' || !form.thumbnail || !form.video) {
@@ -142,7 +129,7 @@ const Create = () => {
           </Text>
 
           <TouchableOpacity
-            onPress={() => openPicker(FILE_TYPE.image)}
+            onPress={() => openPicker(FILE_TYPE.IMAGE)}
           >
             {form.thumbnail ? (
               <Image

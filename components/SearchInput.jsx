@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Image, Alert } from 'react-native'
+import { View, TextInput, Image, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { icons } from '../constants'
@@ -7,8 +7,8 @@ import { router, usePathname } from 'expo-router'
 const SearchInput = ({ initialQuery }) => {
 
   const pathname = usePathname();
-
   const [query, setQuery] = useState(initialQuery || '');
+
 
   return (
     <View
@@ -21,7 +21,6 @@ const SearchInput = ({ initialQuery }) => {
         placeholder="Search for a video topic"
         placeholderTextColor="#CDCDE0"
         onChangeText={(e) => setQuery(e)}
-      // secureTextEntry={title === 'Password' && !showPassword} // This will hide what u typing
       />
 
       <TouchableOpacity

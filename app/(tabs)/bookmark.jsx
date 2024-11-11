@@ -1,33 +1,17 @@
-import { View, Text, FlatList, Image, RefreshControl, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, FlatList, Image } from 'react-native'
+import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '../../context/GlobalProvider'
 import { images } from '../../constants'
 import SearchInput from '../../components/SearchInput'
-import Trending from '../../components/Trending'
 import EmptyState from '../../components/EmptyState'
-import { searchPosts, getLatestPosts } from '../../lib/appwrite'
-import useAppwrite from '../../lib/useAppwrite'
 import VideoCards from '../../components/VideoCards'
-import { router, usePathname } from 'expo-router'
+import { router } from 'expo-router'
 import CustomButton from '../../components/CustomButton'
 
 const Bookmark = () => {
+
   const { user: { bookmarked: bookmarkList} } = useGlobalContext();
-  // const { data: Posts, isLoading, refetch } = useAppwrite(() => searchPosts('documentId', bookmarkList));
-
-  const pathname = usePathname()
-  // console.log('pathname==> ', pathname);//    /bookmark
-  
-
-  // const [refreshing, setRefreshing] = useState(false)
-
-  // const onRefresh = async () => {
-  //   setRefreshing(true);
-  //   //re call videos --> if any new videos appeared
-  //   await refetch();
-  //   setRefreshing(false);
-  // }
 
 
   return (
@@ -71,7 +55,6 @@ const Bookmark = () => {
             }
           />
         )}
-        // refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
     </SafeAreaView>
   )

@@ -1,12 +1,11 @@
-import { View, Text, FlatList, Image } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, FlatList, Image } from 'react-native'
+import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import SearchInput from '../../components/SearchInput'
 import EmptyState from '../../components/EmptyState'
 import { getUserPosts, signOut } from '../../lib/appwrite'
 import useAppwrite from '../../lib/useAppwrite'
 import VideoCards from '../../components/VideoCards'
-import { router, useLocalSearchParams } from 'expo-router'
+import { router } from 'expo-router'
 import { useGlobalContext } from '../../context/GlobalProvider'
 import { TouchableOpacity } from 'react-native'
 import { icons } from '../../constants'
@@ -15,7 +14,7 @@ import CustomButton from '../../components/CustomButton'
 
 const Profile = () => {
   const { user, setUser, setIsLoggedIn } = useGlobalContext();
-  const { data: posts, isLoading, refetch } = useAppwrite(() => getUserPosts(user.$id));
+  const { data: posts } = useAppwrite(() => getUserPosts(user.$id));
 
   const logout = async () => {
     await signOut();
@@ -27,7 +26,7 @@ const Profile = () => {
 
   return (
     <SafeAreaView className="bg-primary h-full">
-      <FlatList // Verticle FlatList and horizontal FlatList need to be seperate
+      <FlatList
         data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (

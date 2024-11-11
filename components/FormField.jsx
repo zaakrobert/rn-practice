@@ -14,6 +14,7 @@ const FormField = ({
 
   const [showPassword, setShowPassword] = useState(false)
 
+
   return (
     <View className={`space-y-2 ${otherStyles}`}>
       <Text
@@ -32,7 +33,7 @@ const FormField = ({
           placeholder={placeholder}
           placeholderTextColor="#7b7b8b"
           onChangeText={handleChangeText}
-          secureTextEntry={title === 'Password' && !showPassword} // This will hide what u typing
+          secureTextEntry={title === 'Password' && !showPassword} // This hides what you're typing
         />
         {
           title === 'Password' && 

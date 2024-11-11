@@ -20,7 +20,7 @@ const {
   }
 }  = props
 
-  const { user, setUser, setIsLoggedIn } = useGlobalContext();
+  const { user, setUser } = useGlobalContext();
   const [play, setPlay] = useState(false);
 
   const saveToBookmark = async () => {
@@ -92,7 +92,7 @@ const {
             className="w-full h-60 rounded-xl"
             resizeMode={ResizeMode.CONTAIN}
             useNativeControls
-            shouldPlay//native control
+            shouldPlay // native control
             onPlaybackStatusUpdate={(status) => {
               if (status.didJustFinish) {
                 setPlay(false);
